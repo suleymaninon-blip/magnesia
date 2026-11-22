@@ -10,6 +10,16 @@
 <meta property="og:url" content="https://magnesia.com.tr/">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://magnesia.com.tr/">
+<link rel="alternate" hreflang="tr" href="https://magnesia.com.tr/">
+<link rel="alternate" hreflang="en" href="https://magnesia.com.tr/en/">
+<link rel="alternate" hreflang="de" href="https://magnesia.com.tr/de/">
+<link rel="alternate" hreflang="fr" href="https://magnesia.com.tr/fr/">
+<link rel="alternate" hreflang="it" href="https://magnesia.com.tr/it/">
+<link rel="alternate" hreflang="es" href="https://magnesia.com.tr/es/">
+<link rel="alternate" hreflang="ru" href="https://magnesia.com.tr/ru/">
+<link rel="alternate" hreflang="zh" href="https://magnesia.com.tr/zh/">
+<link rel="alternate" hreflang="ja" href="https://magnesia.com.tr/ja/">
+<link rel="alternate" hreflang="x-default" href="https://magnesia.com.tr/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23b5653a'/%3E%3Cpath d='M12 22 32 10l20 12zM14 24h36v4H14zM18 30h4v20h-4zM30 30h4v20h-4zM42 30h4v20h-4zM12 52h40v4H12z' fill='%23f6efe4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,18 +64,31 @@ section{padding:96px 0}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.5rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:.06em}
 .scrolled .brand{color:var(--ink)}
 .brand svg{width:30px;height:30px}
-.nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0}
+.nav #menu{list-style:none;display:flex;gap:clamp(16px,2vw,28px);margin:0 0 0 auto;padding:0}
 .nav a.link{color:rgba(255,255,255,.92);text-decoration:none;font-size:.92rem;font-weight:500}
 .scrolled .nav a.link{color:var(--ink)}
 .nav a.link:hover{color:var(--terracotta)}
 .menu-btn{display:none;background:none;border:0;color:#fff;padding:8px;cursor:pointer}
 .scrolled .menu-btn{color:var(--ink)}
-@media (max-width:860px){
+@media (max-width:1040px){
   .menu-btn{display:block}
-  .nav ul{position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--surface);box-shadow:0 10px 30px rgba(0,0,0,.12);display:none}
-  .nav ul.open{display:flex}
-  .nav ul li a.link{display:block;padding:14px 20px;color:var(--ink);border-top:1px solid var(--line)}
+  .nav #menu{position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--surface);box-shadow:0 10px 30px rgba(0,0,0,.12);display:none}
+  .nav #menu.open{display:flex}
+  .nav #menu li a.link{display:block;padding:14px 20px;color:var(--ink);border-top:1px solid var(--line)}
 }
+
+.lang{position:relative;margin-left:22px}
+.lang summary{list-style:none;display:flex;align-items:center;gap:6px;cursor:pointer;color:rgba(255,255,255,.92);font-size:.85rem;font-weight:600;letter-spacing:.06em;padding:6px 10px;border:1px solid rgba(255,255,255,.35);border-radius:999px}
+.lang summary::-webkit-details-marker{display:none}
+.scrolled .lang summary{color:var(--ink);border-color:var(--line)}
+.lang ul{position:absolute;right:0;top:calc(100% + 8px);list-style:none;margin:0;padding:6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,.16);min-width:150px;display:block}
+.lang li a{display:block;padding:7px 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:.92rem}
+.lang li a:hover{background:var(--bg-alt)}
+.lang li a[aria-current]{color:var(--terracotta-dark);font-weight:600}
+@media (max-width:1040px){.lang{margin-left:auto;margin-right:6px}}
+:lang(zh) h1,:lang(zh) h2,:lang(zh) h3,:lang(zh) h4{font-family:"Noto Serif SC","Songti SC","SimSun",var(--serif);letter-spacing:0}
+:lang(ja) h1,:lang(ja) h2,:lang(ja) h3,:lang(ja) h4{font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",var(--serif);letter-spacing:0}
+:lang(zh) body,:lang(ja) body{line-break:strict}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;color:#fff;overflow:hidden;padding:120px 0 80px;background:var(--night)}
@@ -226,9 +249,6 @@ footer a{color:#e7c3a6}
       <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 22 32 8l24 14z M10 24h44v4H10z M16 30h5v20h-5z M29.5 30h5v20h-5z M43 30h5v20h-5z M8 52h48v4H8z" fill="currentColor"/></svg>
       MAGNESIA
     </a>
-    <button class="menu-btn" aria-label="Menüyü aç" aria-expanded="false" aria-controls="menu">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
     <ul id="menu">
       <li><a class="link" href="#kent">Kent</a></li>
       <li><a class="link" href="#tarihce">Tarihçe</a></li>
@@ -238,6 +258,23 @@ footer a{color:#e7c3a6}
       <li><a class="link" href="#kaynaklar">Kaynaklar</a></li>
       <li><a class="link" href="#ziyaret">Ziyaret</a></li>
     </ul>
+    <details class="lang">
+      <summary aria-label="Dil / Language"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><span>TR</span></summary>
+      <ul>
+        <li><a href="/" hreflang="tr" lang="tr" aria-current="page">Türkçe</a></li>
+        <li><a href="/en/" hreflang="en" lang="en">English</a></li>
+        <li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li>
+        <li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="/it/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="/es/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li>
+        <li><a href="/zh/" hreflang="zh" lang="zh">中文</a></li>
+        <li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li>
+      </ul>
+    </details>
+    <button class="menu-btn" aria-label="Menüyü aç" aria-expanded="false" aria-controls="menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
   </nav>
 </header>
 
@@ -547,7 +584,7 @@ footer a{color:#e7c3a6}
       </ul>
     </details>
   </div>
-  <dialog class="lightbox" aria-label="Fotoğraf görüntüleyici">
+  <dialog class="lightbox" aria-label="Fotoğraf görüntüleyici" data-photo="Fotoğraf:">
     <button class="lb-close" type="button" aria-label="Kapat">&times;</button>
     <button class="lb-nav lb-prev" type="button" aria-label="Önceki fotoğraf">&#8249;</button>
     <figure>
@@ -716,6 +753,9 @@ footer a{color:#e7c3a6}
   var onScroll=function(){header.classList.toggle('scrolled',window.scrollY>40)};
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
+  var lang=document.querySelector('.lang');
+  document.addEventListener('click',function(ev){if(lang&&lang.open&&!lang.contains(ev.target))lang.open=false});
+
   var btn=document.querySelector('.menu-btn'),menu=document.getElementById('menu');
   btn.addEventListener('click',function(){
     var open=menu.classList.toggle('open');
@@ -741,7 +781,7 @@ footer a{color:#e7c3a6}
     var show=function(i){
       cur=(i+items.length)%items.length;var b=items[cur];
       lbImg.src=b.dataset.lg;lbImg.alt=b.querySelector('img').alt;
-      lbT.textContent=b.dataset.title;lbC.textContent=b.dataset.cap;lbCr.textContent='Fotoğraf: '+b.dataset.credit;
+      lbT.textContent=b.dataset.title;lbC.textContent=b.dataset.cap;lbCr.textContent=lb.dataset.photo+' '+b.dataset.credit;
     };
     items.forEach(function(b,i){b.addEventListener('click',function(){show(i);lb.showModal()})});
     lb.querySelector('.lb-close').addEventListener('click',function(){lb.close()});
